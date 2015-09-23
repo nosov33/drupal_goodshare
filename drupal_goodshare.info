@@ -1,0 +1,5 @@
+name = Social Media Share Module
+description =   
+version = 7.x-1.0
+author = Ivan Nosov
+core = 7.x
