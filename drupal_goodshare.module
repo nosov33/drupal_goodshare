@@ -1,0 +1,38 @@
+<?php
+/**
+* Implements hook_help() to the module.
+*/
+function drupal_goodshare_help($path, $arg){
+	switch ($path){
+		case 'admin/help#drupal_goodshare':{
+			$ret_val = '<h3>' . t('About Goodshare Module') . '</h3>';
+			$ret_val = '<p>' . t('Here is discription of the Module which You can Translate') . '</p>';
+			return $ret_val;
+			break;
+		}
+	}
+}
+/**
+ * Implements hook_menu().
+ */
+function drupal_goodshare_menu() {
+  $items = array();
+
+  // Admin configuration group.
+  $items['admin/config/drupal_goodshare'] = array(
+    'title' => 'Social Media Share',
+    'description' => 'Administer Social Media Share',
+    'access arguments' => array('Administer Social Media Share'),
+  );
+
+  // Admin configuration - Settings.
+  $items['admin/config/drupal_goodshare/manage'] = array(
+    'title' => 'Social Media Share settings',
+    'description' => 'Manage Social Media Share settings and configurations.',
+    'access arguments' => array('administer Social Media Share'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('drupal_goodshare_admin_settings_form'),
+  );
+
+  return $items;
+}
